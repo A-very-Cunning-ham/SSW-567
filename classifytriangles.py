@@ -19,7 +19,7 @@ def classify_triangle(a, b, c):
     else:
         triangleType = "Isosceles"
 
-    if sqrt(a**2 + b**2) == c or sqrt(a**2 + c**2) == b or sqrt(b**2 + c**2) == a:
+    if sqrt(a**2 + b**2) == c:
         rightTriangle = "Right"
     else:
         rightTriangle = "Nonright"
@@ -39,7 +39,7 @@ class Testclassify_triangle(unittest.TestCase):
         self.assertEqual(classify_triangle(1, 1, 1.5), ("Isosceles", "Nonright"))
 
     def test_right_isosceles(self):
-        self.assertEqual(classify_triangle(1, 1, sqrt(2)), ("Isosceles", "Right"))
+        self.assertEqual(classify_triangle(1, sqrt(2), 1), ("Isosceles", "Right"))
 
     def test_equilateral(self):
         self.assertEqual(classify_triangle(3, 3, 3), ("Equilateral", "Nonright"))
