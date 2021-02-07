@@ -5,7 +5,7 @@ from math import sqrt
 def classify_triangle(a, b, c):
     """ 
     Based on 3 side lengths, return the triangle properties: scalene, isosceles, or equilateral, and if it is a right triangle.
-    Triangles are invalid if the summed length of their two shortest sides is not longer than the longest side
+    Triangles are invalid if the summed length of their two shortest sides is shorter than the longest side
     """
 
     a, b, c = sorted([a, b, c])
