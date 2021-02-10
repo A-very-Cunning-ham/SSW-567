@@ -50,11 +50,13 @@ class Testclassify_triangle(unittest.TestCase):
 
 if __name__ == '__main__':
     # show the classify_triangle function running as intended
-    print(classify_triangle(1,2,2.5))
+    print(classify_triangle(1,1,1.5))
+    print(classify_triangle(1,1,sqrt(2)))
     print(classify_triangle(1,1,1))
     print(classify_triangle(3, 3, 3))
     print(classify_triangle(3, 4, 5))
-
     print(classify_triangle(6, 7, 3))
+    print(classify_triangle(1, 1, 4))
+
     # run the tests
     unittest.main(exit=True)
