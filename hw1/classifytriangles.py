@@ -8,6 +8,9 @@ def classify_triangle(a, b, c):
     Triangles are invalid if the summed length of their two shortest sides is shorter than the longest side
     """
 
+    if not (isinstance(a, (int, float)) or isinstance(b, (int, float)) or isinstance(c, (int, float))) or a < 0 or b < 0 or c < 0:
+        return("InvalidInput", "Nonright")
+
     a, b, c = sorted([a, b, c])
 
     if a + b <= c:
@@ -46,6 +49,15 @@ class Testclassify_triangle(unittest.TestCase):
 
     def test_notATriangle(self):
         self.assertEqual(classify_triangle(1, 1, 3), ("NotATriangle", "Nonright"))
+    
+    def test_invalidInput(self):
+        self.assertEqual(classify_triangle('a', 'b', 'c'), ("InvalidInput", "Nonright"))
+
+    def test_negativeInput(self):
+        self.assertEqual(classify_triangle(-1, 2, 3), ("InvalidInput", "Nonright"))
+
+    def test_negativeInput2(self):
+        self.assertEqual(classify_triangle(-2, -2, -3), ("InvalidInput", "Nonright"))
 
 
 if __name__ == '__main__':
@@ -57,6 +69,7 @@ if __name__ == '__main__':
     print(classify_triangle(3, 4, 5))
     print(classify_triangle(6, 7, 3))
     print(classify_triangle(1, 1, 4))
+    print(classify_triangle(1, 0, 0))
 
     # run the tests
     unittest.main(exit=True)
